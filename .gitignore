@@ -1,0 +1,50 @@
+# Gradle / Android Studio
+.gradle/
+build/
+*/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Android Studio / IntelliJ IDEA
+*.iml
+.idea/
+!.idea/codeStyles/
+.navigation/
+misc.xml
+
+# Keystore / firmados
+*.jks
+*.keystore
+key.properties
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node / Ionic / Angular
+node_modules/
+dist/
+.angular/
+*.log
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Sistema
+.Trash/
+.Trash-*/
+*.swp
+*~
