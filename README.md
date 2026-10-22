@@ -107,6 +107,10 @@ cd enigma-code
 > Para probar la **ruta biométrica** necesitas un dispositivo o emulador con sensor
 > de huella y al menos una huella registrada. Si no hay hardware biométrico, la app
 > cae automáticamente al diálogo de contraseña.
+>
+> ⚠️ **Antes de usarlo:** la credencial del rol JEFE está en
+> `Constantes.kt` (`CONTRASENA_JEFE`). El valor publicado es un ejemplo;
+> cámbialo por el tuyo en tu copia local.
 
 ---
 

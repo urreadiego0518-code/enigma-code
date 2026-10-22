@@ -6,11 +6,14 @@ package com.urreadiego.enigmacode
  * Nota: la contraseña del rol JEFE se mantiene aquí por tratarse de un
  * proyecto académico. En un proyecto real debe living en un servidor
  * cifrado / Keystore y nunca en el código fuente.
+ *
+ * ⚠️ El valor publicado es un ejemplo ("1234"). Cámbialo por el tuyo en tu
+ * copia local antes de usar la app.
  */
 object Constantes {
 
     /** Credencial de respaldo cuando el dispositivo no dispone de biometría. */
-    const val CONTRASENA_JEFE = "160118"
+    const val CONTRASENA_JEFE = "1234"
 
     /** Roles disponibles en el sistema. */
     const val ROL_JEFE = "JEFE"
