@@ -1,8 +1,8 @@
 # EnigmaCode 🔐
 
 > App Android de **control de acceso biométrico** y **cálculo de nómina**, desarrollada
-> con Kotlin y Jetpack Compose como proyecto de la materia de *Estructura de Datos*
-> (4º semestre, ITEI).
+> con Kotlin y Jetpack Compose como proyecto académico de la materia de
+> *Estructura de Datos*.
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.9-blue?logo=kotlin)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Android-API%2024%2B-green?logo=android)](https://developer.android.com)
@@ -134,8 +134,7 @@ enigma-code/
 
 ## 📚 Contexto académico
 
-Proyecto de la asignatura **Estructura de Datos** del 4º semestre del
-*Instituto Tecnológico de Tuxtla Gutiérrez*, donde se aplica la *manipulación de
+Proyecto de la asignatura **Estructura de Datos**, donde se aplica la *manipulación de
 listas, la implementación manual de algoritmos de ordenamiento y el modelado de datos
 orientado a objetos* a un caso real: el cálculo de nómina de una empresa.
 
