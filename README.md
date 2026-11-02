@@ -1,8 +1,7 @@
-# EnigmaCode 🔐
+# EnigmaCode
 
-> App Android de **control de acceso biométrico** y **cálculo de nómina**, desarrollada
-> con Kotlin y Jetpack Compose como proyecto académico de la materia de
-> *Estructura de Datos*.
+> App Android de control de acceso biométrico y cálculo de nómina, hecha con
+> Kotlin y Jetpack Compose como proyecto de la materia de Estructura de Datos.
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.9-blue?logo=kotlin)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Android-API%2024%2B-green?logo=android)](https://developer.android.com)
@@ -11,36 +10,36 @@
 
 ---
 
-## 📱 ¿Qué hace?
+## Qué hace
 
-**EnigmaCode** controla el acceso a un sistema de nómina con **dos roles**:
+EnigmaCode controla el acceso a un sistema de nómina con dos roles:
 
 | Rol | Cómo entra | Qué puede hacer |
 |---|---|---|
-| 🧑‍💼 **JEFE** | Huella dactilar (BiometricPrompt) o contraseña de respaldo | Ver, agregar, editar y eliminar empleados |
-| 👤 **EMPLEADO** | Su RFC, validado por formato y contra el registro | Consultar únicamente **su propia** nómina |
+| **JEFE** | Huella dactilar (BiometricPrompt) o contraseña de respaldo | Ver, agregar, editar y eliminar empleados |
+| **EMPLEADO** | Su RFC, validado por formato y contra el registro | Consultar únicamente su propia nómina |
 
-La app calcula el sueldo final de cada empleado a partir de días trabajados, horas
-extra, faltas y la localidad correspondiente, aplicando un bono según el estado.
-
----
-
-## ✨ Funcionalidades
-
-- 🔐 **Autenticación biométrica** con `BiometricPrompt` (`BIOMETRIC_STRONG`).
-- 🔑 **Fallback a contraseña** cuando el dispositivo no tiene lector o la huella falla.
-- 🪪 **Validación de RFC** con expresiones regulares (formato persona física / moral).
-- 💾 **Persistencia local** con `SharedPreferences` + `Gson` (sin base de datos ni red).
-- 🗂️ **CRUD completo** de empleados: crear, buscar, actualizar y eliminar.
-- 🔎 **Búsqueda** por RFC (exacta) y por nombre (parcial, insensible a mayúsculas).
-- 📊 **Ordenamiento** por sueldo final y por localidad (burbuja, algorítmico).
-- 🧾 **Cálculo de nómina**: percepciones, deducciones y bono por localidad.
-- 🎨 **UI 100% Jetpack Compose** con Material 3, temas claro/oscuro y tipografía propia.
-- 👥 **Roles**: el empleado solo ve su propio registro.
+La app calcula el sueldo final de cada empleado a partir de los días trabajados,
+las horas extra, las faltas y la localidad, aplicando un bono según el estado.
 
 ---
 
-## 🧮 Modelo de cálculo
+## Funcionalidades
+
+- Autenticación biométrica con `BiometricPrompt` (`BIOMETRIC_STRONG`).
+- Respaldo con contraseña cuando el dispositivo no tiene lector o la huella falla.
+- Validación de RFC con expresiones regulares (persona física y moral).
+- Persistencia local con `SharedPreferences` + `Gson` (sin base de datos ni red).
+- CRUD completo de empleados: crear, buscar, actualizar y eliminar.
+- Búsqueda por RFC (exacta) y por nombre (parcial, sin importar mayúsculas).
+- Ordenamiento por sueldo final y por localidad (burbuja, a mano).
+- Cálculo de nómina: percepciones, deducciones y bono por localidad.
+- Interfaz 100% Jetpack Compose con Material 3, temas claro/oscuro y tipografía propia.
+- Roles: el empleado solo ve su propio registro.
+
+---
+
+## Cómo se calcula el sueldo
 
 ```
 sueldoBase      = díasTrabajados × 200
@@ -50,12 +49,12 @@ deducciones     = sueldoNeto × 0.22  +  faltas × 200
 sueldoFinal     = sueldoNeto + percepciones − deducciones
 ```
 
-Los bonos por localidad viven en el `enum class Localidad`
+Los bonos por localidad están en el `enum class Localidad`
 (`Yucatán 40 %`, `Puebla 30 %`, `Veracruz 20 %`, `Chiapas 10 %`, `Campeche +$400`).
 
 ---
 
-## 🧭 Flujo de acceso
+## Flujo de acceso
 
 ```mermaid
 flowchart TD
@@ -75,7 +74,7 @@ flowchart TD
 
 ---
 
-## 🛠️ Stack
+## Stack
 
 - **Kotlin** + **Coroutines**
 - **Jetpack Compose** (Material 3)
@@ -87,34 +86,34 @@ flowchart TD
 
 ---
 
-## 🚀 Cómo compilar y ejecutar
+## Cómo compilar y ejecutar
 
-**Requisitos:** Android Studio (Ladybug o superior), JDK 17, Android SDK 36.
+**Necesitas:** Android Studio (Ladybug o superior), JDK 17, Android SDK 36.
 
 ```bash
 # 1. Clona el repositorio
 git clone https://github.com/urreadiego0518-code/enigma-code.git
 cd enigma-code
 
-# 2. Abre en Android Studio y espera a que Gradle sincronice
+# 2. Ábrelo en Android Studio y espera a que Gradle sincronice
 #    (o desde la terminal:)
 ./gradlew assembleDebug
 
-# 3. Instala en un dispositivo o emulador (API 24+)
+# 3. Instálalo en un dispositivo o emulador (API 24+)
 ./gradlew installDebug
 ```
 
-> Para probar la **ruta biométrica** necesitas un dispositivo o emulador con sensor
-> de huella y al menos una huella registrada. Si no hay hardware biométrico, la app
-> cae automáticamente al diálogo de contraseña.
+> Para probar la ruta biométrica necesitas un dispositivo o emulador con sensor
+> de huella y al menos una huella registrada. Si no hay hardware biométrico, la
+> app se va sola al diálogo de contraseña.
 >
-> ⚠️ **Antes de usarlo:** la credencial del rol JEFE está en
-> `Constantes.kt` (`CONTRASENA_JEFE`). El valor publicado es un ejemplo;
-> cámbialo por el tuyo en tu copia local.
+> **Antes de usarlo:** la credencial del rol JEFE está en `Constantes.kt`
+> (`CONTRASENA_JEFE`). El valor publicado es un ejemplo; cámbialo por el tuyo en
+> tu copia local.
 
 ---
 
-## 📁 Estructura
+## Estructura
 
 ```
 enigma-code/
@@ -136,20 +135,21 @@ enigma-code/
 
 ---
 
-## 📚 Contexto académico
+## Contexto académico
 
-Proyecto de la asignatura **Estructura de Datos**, donde se aplica la *manipulación de
-listas, la implementación manual de algoritmos de ordenamiento y el modelado de datos
-orientado a objetos* a un caso real: el cálculo de nómina de una empresa.
+Proyecto de la asignatura **Estructura de Datos**, donde se aplica la
+manipulación de listas, la implementación manual de algoritmos de ordenamiento y
+el modelado de datos orientado a objetos a un caso real: el cálculo de nómina de
+una empresa.
 
 ---
 
-## 📄 Licencia
+## Licencia
 
-MIT — úsalo, modifícalo y compártelo. Ver [LICENSE](LICENSE).
+MIT. Úsalo, modifícalo y compártelo. Ver [LICENSE](LICENSE).
 
 ---
 
 <div align="center">
-  <sub>Hecho por <a href="https://github.com/urreadiego0518-code">Diego Urrea Albores</a> con ☕ y Kotlin</sub>
+  <sub>Hecho por <a href="https://github.com/urreadiego0518-code">Diego Urrea Albores</a></sub>
 </div>
